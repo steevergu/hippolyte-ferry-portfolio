@@ -1,3 +1,12 @@
+/* ── INTRO SCREEN ── */
+const siteIntro = document.getElementById("site-intro");
+if (siteIntro) {
+  setTimeout(() => {
+    siteIntro.classList.add("is-leaving");
+    siteIntro.addEventListener("transitionend", () => siteIntro.remove(), { once: true });
+  }, 900);
+}
+
 const header = document.querySelector(".site-header");
 const year = document.getElementById("year");
 const scrollTopBtn = document.querySelector(".scroll-top");
