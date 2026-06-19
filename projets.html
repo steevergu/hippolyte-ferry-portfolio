@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projets | Hippolyte Ferry</title>
+    <meta name="description" content="Sélection de projets, design graphique et audiovisuel, par Hippolyte Ferry." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Archivo+Black&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <div class="site-shell">
+      <header class="site-header">
+        <nav class="site-nav" aria-label="Navigation principale">
+          <a href="index.html">Accueil</a>
+          <a href="projets.html">Projets</a>
+          <a href="cv.html">CV</a>
+          <a href="index.html#about">À propos</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+        <a class="brand" href="index.html" aria-label="Retour à l'accueil">H<span>F</span></a>
+      </header>
+
+      <main id="top">
+        <section class="case-intro reveal">
+          <p class="eyebrow">Sélection</p>
+          <h1>Projets</h1>
+          <p class="case-lede">
+            Un portfolio, deux pratiques, design graphique et audiovisuel, portées
+            par un même langage visuel. Filtre par discipline ou explore l'ensemble.
+          </p>
+        </section>
+
+        <section class="projects-toolbar reveal" aria-label="Catégories de projets">
+          <div class="filter-group" role="toolbar" aria-label="Filtrer les projets par catégorie">
+            <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">
+              Tous
+            </button>
+            <button class="filter-chip" type="button" data-filter="graphic-design" aria-pressed="false">
+              Design graphique
+            </button>
+            <button class="filter-chip" type="button" data-filter="audiovisual" aria-pressed="false">
+              Audiovisuel
+            </button>
+          </div>
+        </section>
+
+        <section class="projects-grid">
+
+          <!-- [carré][carré] -->
+          <a class="project-card reveal" href="project-eazy-e.html" data-category="graphic-design">
+            <div class="project-media">
+              <img src="assets/media/eazy-e/2bioeazy-e.jpg" alt="Biographie Eazy-E, Sa vie, son œuvre" />
+            </div>
+            <div class="project-meta">
+              <span class="project-category">Design graphique</span>
+              <h3>Biographie Eazy-E</h3>
+              <span>J'ai réalisé un livre fictif sur la vie d'Eazy-E, intitulé « Sa vie, son œuvre ».</span>
+            </div>
+          </a>
+
+          <a class="project-card reveal reveal-delay" href="project-echo.html" data-category="graphic-design">
+            <div class="project-media">
+              <img src="assets/media/echo/echomontage.jpeg" alt="Echo, collage photographique" style="object-position: center 20%;" />
+            </div>
+            <div class="project-meta">
+              <span class="project-category">Design graphique</span>
+              <h3>Echo</h3>
+              <span>Un collage autour de l'enfance et de ce qui continue de vibrer en nous.</span>
+            </div>
+          </a>
+
+          <!-- [rectangle] -->
+          <a class="project-card reveal" href="project-reflet.html" data-category="graphic-design">
+            <div class="project-media">
+              <img src="assets/media/reflet/couvmaga.jpg" alt="Reflet, magazine rap" style="object-position: center 45%;" />
+            </div>
+            <div class="project-meta">
+              <span class="project-category">Design graphique</span>
+              <h3>Reflet, Magazine</h3>
+              <span>Un magazine rap qui met en lumière les acteurs de l'ombre de l'industrie musicale.</span>
+            </div>
+          </a>
+
+          <!-- [carré][carré] -->
+          <a class="project-card reveal" href="project-bose.html" data-category="graphic-design">
+            <div class="project-media">
+              <img src="assets/media/bose/visubose.jpg" alt="Affiche Bose SoundLink Revolve II" />
+            </div>
+            <div class="project-meta">
+              <span class="project-category">Design graphique</span>
+              <h3>Affiche Bose SoundLink Revolve II</h3>
+              <span>Affiche commerciale fictive mettant en avant l'enceinte Bose SoundLink Revolve II.</span>
+            </div>
+          </a>
+
+          <a class="project-card reveal reveal-delay" href="project-mattepainting.html" data-category="graphic-design">
+            <div class="project-media">
+              <img src="assets/media/matte-painting/mattepainting.jpg" alt="Matte Painting, univers pirates" />
+            </div>
+            <div class="project-meta">
+              <span class="project-category">Design graphique</span>
+              <h3>Matte Painting</h3>
+              <span>Une scène immersive dans l'univers des pirates, navires, îles mystérieuses et atmosphère aventureuse.</span>
+            </div>
+          </a>
+
+          <!-- [carré][carré] -->
+          <a class="project-card reveal" href="project-punk-rock.html" data-category="audiovisual">
+            <div class="project-media">
+              <video src="assets/media/punk-rock/asap-rocky.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <div class="project-meta">
+              <span class="project-category">Audiovisuel</span>
+              <h3>Teaser Punk Rock, A$AP Rocky</h3>
+              <span>Un teaser motion design pour le titre « PUNK ROCK », au style cartoon inspiré de Parappa The Rapper.</span>
+            </div>
+          </a>
+
+          <a class="project-card reveal reveal-delay" href="project-air-jordan.html" data-category="audiovisual">
+            <div class="project-media">
+              <video src="assets/media/Publicit%C3%A9%20Air%20Jordan%203%20Dark%20Iris/pub.mov" autoplay muted loop playsinline></video>
+            </div>
+            <div class="project-meta">
+              <span class="project-category">Audiovisuel</span>
+              <h3>Publicité Air Jordan 3 Dark Iris</h3>
+              <span>Publicité fictive pour Nike mettant en avant les Air Jordan 3 Dark Iris, sur Spook de Kekra.</span>
+            </div>
+          </a>
+
+          <!-- [rectangle] -->
+          <a class="project-card reveal reveal-delay" href="project-vibz-festival.html" data-category="graphic-design">
+            <div class="project-media">
+              <img src="assets/media/vibz-festival/vignette.jpg" alt="Vibz Festival" />
+            </div>
+            <div class="project-meta">
+              <span class="project-category">Design graphique</span>
+              <h3>Vibz Festival</h3>
+              <span>Une campagne globale pour un festival de musique urbaine, entre branding, réseaux sociaux et contenus visuels.</span>
+            </div>
+          </a>
+
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span>Hippolyte Ferry</span>
+        <span id="year"></span>
+      </footer>
+    </div>
+
+    <button class="scroll-top" aria-label="Retour en haut">↑</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
