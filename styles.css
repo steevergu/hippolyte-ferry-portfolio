@@ -1637,7 +1637,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .intro-logo em {
   font-style: normal;
-  color: var(--c-teal);
+  color: var(--c-purple);
 }
 
 @keyframes intro-logo-in {
