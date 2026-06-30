@@ -1,3 +1,71 @@
+/* ── HAMBURGER MENU ── */
+const navToggle  = document.querySelector(".nav-toggle");
+const siteNav    = document.querySelector(".site-nav");
+const siteHeader = document.querySelector(".site-header");
+
+/* Sur mobile, on sort le menu du header (dont le backdrop-filter piège le
+   position:fixed) et on le place dans <body>. Sur desktop il reste dans le header. */
+if (siteNav && siteHeader) {
+  const mqMobile = window.matchMedia("(max-width: 820px)");
+  const placeNav = () => {
+    if (mqMobile.matches) {
+      if (siteNav.parentElement !== document.body) document.body.appendChild(siteNav);
+    } else if (siteNav.parentElement !== siteHeader) {
+      siteHeader.insertBefore(siteNav, siteHeader.firstChild);
+    }
+  };
+  placeNav();
+  mqMobile.addEventListener("change", placeNav);
+}
+
+if (navToggle && siteNav) {
+  const openMenu = () => {
+    siteNav.classList.add("is-open");
+    navToggle.setAttribute("aria-expanded", "true");
+    navToggle.setAttribute("aria-label", "Fermer le menu");
+    document.body.classList.add("nav-open");
+  };
+
+  const closeMenu = () => {
+    siteNav.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+    navToggle.setAttribute("aria-label", "Ouvrir le menu");
+    document.body.classList.remove("nav-open");
+  };
+
+  navToggle.addEventListener("click", () => {
+    const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  /* Fermeture via Escape */
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && siteNav.classList.contains("is-open")) {
+      closeMenu();
+      navToggle.focus();
+    }
+  });
+
+  /* Fermeture au clic sur un lien du menu */
+  siteNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => closeMenu());
+  });
+
+  /* Fermeture au clic sur l'overlay */
+  document.addEventListener("click", (e) => {
+    if (siteNav.classList.contains("is-open") &&
+        !siteNav.contains(e.target) &&
+        !navToggle.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  /* Fermeture au resize > 820px */
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 820) closeMenu();
+  }, { passive: true });
+}
+
 /* ── INTRO SCREEN ── */
 const siteIntro = document.getElementById("site-intro");
 if (siteIntro) {
@@ -16,7 +84,7 @@ const cards = document.querySelectorAll(".project-card");
 const filterButtons = document.querySelectorAll(".filter-chip");
 
 if (year) {
-  year.textContent = new Date().getFullYear();
+  year.textContent = `© ${new Date().getFullYear()}`;
 }
 
 const setHeaderState = () => {
@@ -209,6 +277,21 @@ if (aboutFolder) {
         word.classList.toggle("is-lit", wordProgress > 0.96);
       });
 
+      /* flash teal sur les mots-clés quand ils arrivent au seuil de lisibilité */
+      aboutKeywords.forEach((kw) => {
+        if (kw.dataset.decoded) return;
+        const kwWords = kw.querySelectorAll(".about-word");
+        if (!kwWords.length) return;
+        const avg = Array.from(kwWords).reduce(
+          (s, w) => s + parseFloat(w.style.getPropertyValue("--word-progress") || "0"), 0
+        ) / kwWords.length;
+        if (avg > 0.72) {
+          kw.dataset.decoded = "1";
+          kw.classList.add("is-decoding");
+          setTimeout(() => kw.classList.remove("is-decoding"), 750);
+        }
+      });
+
       lastProgress = p;
     };
 
@@ -223,12 +306,48 @@ if (aboutFolder) {
     applyHighlight();
   }
 
+  /* ── TITLE TEXT SCRAMBLE ── */
+  function scrambleTitle(el, dur) {
+    if (!el || reduceMotion) return;
+    const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$!%#&?";
+    const original = el.textContent;
+    const t0 = performance.now();
+    el.classList.add("is-scrambling");
+
+    const tick = (now) => {
+      const p = Math.min((now - t0) / dur, 1);
+      const e = 1 - Math.pow(1 - p, 3); /* ease-out cubic */
+
+      let out = "";
+      for (let i = 0; i < original.length; i++) {
+        const c = original[i];
+        if (c === " " || c === "." || c === ",") { out += c; continue; }
+        out += e > (i / original.length) * 0.85
+          ? c
+          : CHARS[Math.floor(Math.random() * CHARS.length)];
+      }
+
+      el.textContent = out;
+
+      if (p < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        el.textContent = original;
+        el.classList.remove("is-scrambling");
+      }
+    };
+
+    requestAnimationFrame(tick);
+  }
+
   if ("IntersectionObserver" in window) {
     const aboutObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             aboutFolder.classList.add("is-revealed");
+            const titleEl = aboutFolder.querySelector(".about-folder__title");
+            setTimeout(() => scrambleTitle(titleEl, 1050), 80);
             aboutObserver.unobserve(entry.target);
           }
         });

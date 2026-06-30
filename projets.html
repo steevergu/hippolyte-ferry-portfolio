@@ -2,12 +2,13 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="assets/media/logo/HF.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projets | Hippolyte Ferry</title>
+    <title>Hippolyte Ferry — Portfolio</title>
     <meta name="description" content="Sélection de projets, design graphique et audiovisuel, par Hippolyte Ferry." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Archivo+Black&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -15,14 +16,19 @@
 
     <div class="site-shell">
       <header class="site-header">
-        <nav class="site-nav" aria-label="Navigation principale">
+        <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
           <a href="index.html">Accueil</a>
           <a href="projets.html">Projets</a>
           <a href="cv.html">CV</a>
           <a href="index.html#about">À propos</a>
           <a href="index.html#contact">Contact</a>
         </nav>
-        <a class="brand" href="index.html" aria-label="Retour à l'accueil">H<span>F</span></a>
+        <a class="brand" href="index.html" aria-label="Retour à l'accueil"><img src="assets/media/logo/HF.png" alt="HF" class="brand-img"></a>
+        <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
       </header>
 
       <main id="top">
@@ -51,7 +57,6 @@
 
         <section class="projects-grid">
 
-          <!-- [carré][carré] -->
           <a class="project-card reveal" href="project-eazy-e.html" data-category="graphic-design">
             <div class="project-media">
               <img src="assets/media/eazy-e/2bioeazy-e.jpg" alt="Biographie Eazy-E, Sa vie, son œuvre" />
@@ -74,10 +79,9 @@
             </div>
           </a>
 
-          <!-- [rectangle] -->
           <a class="project-card reveal" href="project-reflet.html" data-category="graphic-design">
             <div class="project-media">
-              <img src="assets/media/reflet/couvmaga.jpg" alt="Reflet, magazine rap" style="object-position: center 45%;" />
+              <img src="assets/media/reflet/vignette.jpg" alt="Reflet, magazine rap" />
             </div>
             <div class="project-meta">
               <span class="project-category">Design graphique</span>
@@ -86,8 +90,7 @@
             </div>
           </a>
 
-          <!-- [carré][carré] -->
-          <a class="project-card reveal" href="project-bose.html" data-category="graphic-design">
+          <a class="project-card reveal reveal-delay" href="project-bose.html" data-category="graphic-design">
             <div class="project-media">
               <img src="assets/media/bose/visubose.jpg" alt="Affiche Bose SoundLink Revolve II" />
             </div>
@@ -98,7 +101,7 @@
             </div>
           </a>
 
-          <a class="project-card reveal reveal-delay" href="project-mattepainting.html" data-category="graphic-design">
+          <a class="project-card reveal" href="project-mattepainting.html" data-category="graphic-design">
             <div class="project-media">
               <img src="assets/media/matte-painting/mattepainting.jpg" alt="Matte Painting, univers pirates" />
             </div>
@@ -109,10 +112,9 @@
             </div>
           </a>
 
-          <!-- [carré][carré] -->
-          <a class="project-card reveal" href="project-punk-rock.html" data-category="audiovisual">
+          <a class="project-card reveal reveal-delay" href="project-punk-rock.html" data-category="audiovisual">
             <div class="project-media">
-              <video src="assets/media/punk-rock/asap-rocky.mp4" autoplay muted loop playsinline></video>
+              <video src="assets/media/punk-rock/asap-rocky.mp4" autoplay muted loop playsinline preload="metadata"></video>
             </div>
             <div class="project-meta">
               <span class="project-category">Audiovisuel</span>
@@ -121,9 +123,9 @@
             </div>
           </a>
 
-          <a class="project-card reveal reveal-delay" href="project-air-jordan.html" data-category="audiovisual">
+          <a class="project-card reveal" href="project-air-jordan.html" data-category="audiovisual">
             <div class="project-media">
-              <video src="assets/media/Publicit%C3%A9%20Air%20Jordan%203%20Dark%20Iris/pub.mov" autoplay muted loop playsinline></video>
+              <video src="assets/media/Publicit%C3%A9%20Air%20Jordan%203%20Dark%20Iris/pub.mov" autoplay muted loop playsinline preload="metadata"></video>
             </div>
             <div class="project-meta">
               <span class="project-category">Audiovisuel</span>
@@ -132,7 +134,6 @@
             </div>
           </a>
 
-          <!-- [rectangle] -->
           <a class="project-card reveal reveal-delay" href="project-vibz-festival.html" data-category="graphic-design">
             <div class="project-media">
               <img src="assets/media/vibz-festival/vignette.jpg" alt="Vibz Festival" />
@@ -148,8 +149,17 @@
       </main>
 
       <footer class="site-footer">
-        <span>Hippolyte Ferry</span>
-        <span id="year"></span>
+        <div class="footer-left">
+          <span class="footer-brand"><img src="assets/media/logo/HF.png" alt="HF" class="brand-img"></span>
+          <span class="footer-tagline">Designer graphique &amp; audiovisuel, Lille</span>
+        </div>
+        <nav class="footer-nav" aria-label="Navigation pied de page">
+          <a href="projets.html">Projets</a>
+          <a href="cv.html">CV</a>
+          <a href="mailto:hippolyte.ferry@isefac.fr">Contact</a>
+          <a href="https://www.linkedin.com/in/hippolyte-ferry-4ab2b821a/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </nav>
+        <span class="footer-copy" id="year"></span>
       </footer>
     </div>
 

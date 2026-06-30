@@ -2,29 +2,35 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="assets/media/logo/HF.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hippolyte Ferry | Designer graphique</title>
+    <title>Hippolyte Ferry — Portfolio</title>
     <meta name="description" content="Portfolio du designer graphique Hippolyte Ferry." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Archivo+Black&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div id="site-intro" aria-hidden="true">
-      <span class="intro-logo">H<em>F</em></span>
+      <img src="assets/media/logo/HF.png" alt="HF" class="intro-logo brand-img">
     </div>
 
     <div class="site-shell">
       <header class="site-header">
-        <nav class="site-nav" aria-label="Navigation principale">
+        <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
           <a href="#top">Accueil</a>
           <a href="projets.html">Projets</a>
           <a href="cv.html">CV</a>
           <a href="#about">À propos</a>
           <a href="#contact">Contact</a>
         </nav>
-        <a class="brand" href="#top" aria-label="Retour en haut">H<span>F</span></a>
+        <a class="brand" href="#top" aria-label="Retour en haut"><img src="assets/media/logo/HF.png" alt="HF" class="brand-img"></a>
+        <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
       </header>
 
       <main id="top">
@@ -35,11 +41,12 @@
               <span class="hero-line">UN <em>DESIGNER</em> GRAPHIQUE</span>
               <span class="hero-line">BASÉ À <s>PARIS</s> LILLE</span>
             </h1>
+            <p class="hero-desc">Je crée des visuels qui racontent, des images qui restent.</p>
             <div class="hero-tags">
               <span>DESIGN</span>
-              <span class="hero-star">✺</span>
+              <img src="assets/media/%C3%A9l%C3%A9ment%20visuel/tache%20vert%20.png" alt="" class="hero-shape" aria-hidden="true">
               <span>AUDIOVISUEL</span>
-              <span class="hero-star">✺</span>
+              <img src="assets/media/%C3%A9l%C3%A9ment%20visuel/tache%20violet%20.png" alt="" class="hero-shape" aria-hidden="true">
               <span>DIRECTION ARTISTIQUE</span>
             </div>
             <div class="hero-actions">
@@ -119,39 +126,46 @@
         </section>
 
         <section class="about-section" id="about">
-          <div class="about-folder reveal">
-            <div class="about-folder__tabs">
-              <span class="about-folder__tab is-active">
-                <span class="about-folder__hex" aria-hidden="true"></span> À propos
-              </span>
-            </div>
+          <div class="about-layout reveal">
 
-            <div class="about-folder__body">
-              <h2 class="about-folder__title about-anim">Designer curieux, du print au mouvement.</h2>
-
-              <div class="about-text">
-                <p class="about-lead">
-                  Passionné par l'image sous toutes ses formes, j'aime créer des
-                  visuels qui attirent l'attention et <span class="about-kw">racontent une histoire</span>. Du
-                  <span class="about-kw">graphisme</span> au <span class="about-kw">motion design</span> en passant par la vidéo, j'aime
-                  explorer différents univers créatifs et apprendre constamment
-                  de nouvelles techniques.
-                </p>
-                <p>
-                  Ce qui me plaît dans un projet, c'est de trouver <span class="about-kw">la bonne idée</span>
-                  et de lui donner vie à travers un design cohérent, impactant et
-                  adapté à son objectif. J'accorde autant d'importance à
-                  l'esthétique qu'au message, avec l'envie de produire des
-                  créations qui ont <span class="about-kw">du sens</span>.
-                </p>
-                <p>
-                  Curieux, impliqué et toujours en quête de progression, j'aime
-                  travailler sur des projets variés, relever de <span class="about-kw">nouveaux défis</span> et
-                  apporter ma vision tout en restant à l'écoute des besoins de
-                  chaque projet.
-                </p>
+            <div class="about-col about-col--left">
+              <h2 class="about-title">Designer curieux, du print au mouvement.</h2>
+              <div class="about-stat">
+                <span class="about-stat__num">3+</span>
+                <span class="about-stat__label">ans de création</span>
               </div>
             </div>
+
+            <div class="about-col about-col--right">
+              <p class="about-lead">
+                Passionné par l'image sous toutes ses formes, j'aime créer des
+                visuels qui attirent l'attention et racontent une histoire. Du
+                graphisme au motion design en passant par la vidéo, j'aime
+                explorer différents univers créatifs et apprendre constamment
+                de nouvelles techniques.
+              </p>
+              <p>
+                Ce qui me plaît dans un projet, c'est de trouver la bonne idée
+                et de lui donner vie à travers un design cohérent, impactant et
+                adapté à son objectif. J'accorde autant d'importance à
+                l'esthétique qu'au message, avec l'envie de produire des
+                créations qui ont du sens.
+              </p>
+              <p>
+                Curieux, impliqué et toujours en quête de progression, j'aime
+                travailler sur des projets variés, relever de nouveaux défis et
+                apporter ma vision tout en restant à l'écoute des besoins de
+                chaque projet.
+              </p>
+              <div class="about-skills">
+                <span class="about-skill">Illustrator</span>
+                <span class="about-skill">Premiere Pro</span>
+                <span class="about-skill">After Effects</span>
+                <span class="about-skill">Photoshop</span>
+                <span class="about-skill">InDesign</span>
+              </div>
+            </div>
+
           </div>
         </section>
 
@@ -206,8 +220,17 @@
       </main>
 
       <footer class="site-footer">
-        <span>Hippolyte Ferry</span>
-        <span id="year"></span>
+        <div class="footer-left">
+          <span class="footer-brand"><img src="assets/media/logo/HF.png" alt="HF" class="brand-img"></span>
+          <span class="footer-tagline">Designer graphique &amp; audiovisuel, Lille</span>
+        </div>
+        <nav class="footer-nav" aria-label="Navigation pied de page">
+          <a href="projets.html">Projets</a>
+          <a href="cv.html">CV</a>
+          <a href="mailto:hippolyte.ferry@isefac.fr">Contact</a>
+          <a href="https://www.linkedin.com/in/hippolyte-ferry-4ab2b821a/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </nav>
+        <span class="footer-copy" id="year"></span>
       </footer>
     </div>
 
