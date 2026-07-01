@@ -3010,13 +3010,14 @@ body {
   }
 
   /* Overlay derrière le drawer */
-  body.nav-open::before {
-    content: "";
+  .nav-overlay {
+    display: none;
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.55);
     z-index: 8999;
   }
+  .nav-overlay.is-active { display: block; }
 
   body.nav-open { overflow: hidden; }
 

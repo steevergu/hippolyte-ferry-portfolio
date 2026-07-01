@@ -19,11 +19,14 @@ if (siteNav && siteHeader) {
 }
 
 if (navToggle && siteNav) {
+  const navOverlay = document.getElementById("nav-overlay");
+
   const openMenu = () => {
     siteNav.classList.add("is-open");
     navToggle.setAttribute("aria-expanded", "true");
     navToggle.setAttribute("aria-label", "Fermer le menu");
     document.body.classList.add("nav-open");
+    if (navOverlay) navOverlay.classList.add("is-active");
   };
 
   const closeMenu = () => {
@@ -31,6 +34,7 @@ if (navToggle && siteNav) {
     navToggle.setAttribute("aria-expanded", "false");
     navToggle.setAttribute("aria-label", "Ouvrir le menu");
     document.body.classList.remove("nav-open");
+    if (navOverlay) navOverlay.classList.remove("is-active");
   };
 
   navToggle.addEventListener("click", () => {
