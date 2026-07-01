@@ -745,7 +745,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .about-col--right p {
-  color: var(--c-white);
+  color: rgba(255, 255, 255, 0.55);
   font-size: 1rem;
   line-height: 1.75;
 }
