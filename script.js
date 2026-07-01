@@ -56,6 +56,8 @@ if (navToggle && siteNav) {
   });
 
   /* Fermeture au clic sur l'overlay */
+  if (navOverlay) navOverlay.addEventListener("click", closeMenu);
+
   document.addEventListener("click", (e) => {
     if (siteNav.classList.contains("is-open") &&
         !siteNav.contains(e.target) &&
