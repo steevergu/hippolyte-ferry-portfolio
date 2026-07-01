@@ -1,7 +1,7 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
-const ROOT = "/Users/hippolyteferry/Documents/portfolio hippo";
+const ROOT = "/Users/hippolyte/Documents/webdesign/portfolio hippo";
 const PORT = 3458;
 const MIME = {
   ".html": "text/html",
