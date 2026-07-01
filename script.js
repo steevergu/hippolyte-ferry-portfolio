@@ -3,17 +3,27 @@ const navToggle  = document.querySelector(".nav-toggle");
 const siteNav    = document.querySelector(".site-nav");
 const siteHeader = document.querySelector(".site-header");
 
-
+/* Sur mobile, on sort le menu du header (dont le backdrop-filter piège le
+   position:fixed) et on le place dans <body>. Sur desktop il reste dans le header. */
+if (siteNav && siteHeader) {
+  const mqMobile = window.matchMedia("(max-width: 820px)");
+  const placeNav = () => {
+    if (mqMobile.matches) {
+      if (siteNav.parentElement !== document.body) document.body.appendChild(siteNav);
+    } else if (siteNav.parentElement !== siteHeader) {
+      siteHeader.insertBefore(siteNav, siteHeader.firstChild);
+    }
+  };
+  placeNav();
+  mqMobile.addEventListener("change", placeNav);
+}
 
 if (navToggle && siteNav) {
-  const navOverlay = document.getElementById("nav-overlay");
-
   const openMenu = () => {
     siteNav.classList.add("is-open");
     navToggle.setAttribute("aria-expanded", "true");
     navToggle.setAttribute("aria-label", "Fermer le menu");
     document.body.classList.add("nav-open");
-    if (navOverlay) navOverlay.classList.add("is-active");
   };
 
   const closeMenu = () => {
@@ -21,7 +31,6 @@ if (navToggle && siteNav) {
     navToggle.setAttribute("aria-expanded", "false");
     navToggle.setAttribute("aria-label", "Ouvrir le menu");
     document.body.classList.remove("nav-open");
-    if (navOverlay) navOverlay.classList.remove("is-active");
   };
 
   navToggle.addEventListener("click", () => {
@@ -43,8 +52,6 @@ if (navToggle && siteNav) {
   });
 
   /* Fermeture au clic sur l'overlay */
-  if (navOverlay) navOverlay.addEventListener("click", closeMenu);
-
   document.addEventListener("click", (e) => {
     if (siteNav.classList.contains("is-open") &&
         !siteNav.contains(e.target) &&
