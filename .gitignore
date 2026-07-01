@@ -2,3 +2,5 @@
 .claude/
 *.dmg
 .git-old-upload-backup/
+.vercel
+.env*
