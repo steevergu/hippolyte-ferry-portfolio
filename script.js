@@ -3,20 +3,7 @@ const navToggle  = document.querySelector(".nav-toggle");
 const siteNav    = document.querySelector(".site-nav");
 const siteHeader = document.querySelector(".site-header");
 
-/* Sur mobile, on sort le menu du header (dont le backdrop-filter piège le
-   position:fixed) et on le place dans <body>. Sur desktop il reste dans le header. */
-if (siteNav && siteHeader) {
-  const mqMobile = window.matchMedia("(max-width: 820px)");
-  const placeNav = () => {
-    if (mqMobile.matches) {
-      if (siteNav.parentElement !== document.body) document.body.appendChild(siteNav);
-    } else if (siteNav.parentElement !== siteHeader) {
-      siteHeader.insertBefore(siteNav, siteHeader.firstChild);
-    }
-  };
-  placeNav();
-  mqMobile.addEventListener("change", placeNav);
-}
+
 
 if (navToggle && siteNav) {
   const navOverlay = document.getElementById("nav-overlay");
